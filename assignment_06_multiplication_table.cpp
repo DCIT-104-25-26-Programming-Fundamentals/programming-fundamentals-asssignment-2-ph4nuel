@@ -57,3 +57,54 @@
 #include <iostream>
 using namespace std;
 
+void printSingleTable(int num) {
+    if (num <= 0) {
+        cout << "Error: Number must be greater than 0." << endl;
+        return;
+    }
+
+    cout << "Multiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << "  x  " << i << "  =  " << (num * i) << endl;
+    }
+}
+
+void printTablesUpToN(int n) {
+    if (n <= 0) {
+        cout << "Error: Number must be greater than 0." << endl;
+        return;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        printSingleTable(i);
+        if (i < n) {
+            cout << "---------------------------" << endl;
+        }
+    }
+}
+
+int main() {
+    int choice;
+    cout << "--- MULTIPLICATION TABLE GENERATOR ---" << endl;
+    cout << "1. Single Table" << endl;
+    cout << "2. Tables from 1 to N" << endl;
+    cout << "Enter choice (1-2): ";
+    cin >> choice;
+
+    if (choice == 1) {
+        int num;
+        cout << "Enter a number: ";
+        cin >> num;
+        printSingleTable(num);
+    } else if (choice == 2) {
+        int n;
+        cout << "Enter number N: ";
+        cin >> n;
+        printTablesUpToN(n);
+    } else {
+        cout << "Invalid choice." << endl;
+    }
+
+    return 0;
+}
+
